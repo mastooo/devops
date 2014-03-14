@@ -1,0 +1,32 @@
+<div class='jumbotron' style='background-color: #202021; color:#dedede'>
+	<div class="container">
+		<h1>Welcome to the DevOps dashboard</h1>
+		<h2>What is the purpose of this app ?</h2>
+		<p>This app is about managing your deployments through github.</p>
+		<p>It's going to track your deployments and using the Github Api, will
+			grab the commits information and process it to retrieve the team
+			members.</p>
+		<p>Now, you can see who was part of the current deployment and what exactly everyone
+			did. Should something wrong happen, you know who to call!</p>
+		
+
+		<h2>How do I use it?</h2>
+		<ul>
+			<li>First, link your github account to the app using the "Signin with Github" button</li>
+			<li>Add to your current deployment process a call to our api:
+				<div class="highlight">
+					<pre><code class="html"><span class="nt">curl -XPOST -H "Content-Type: application/json" <b>http://0.0.0.0:3000/deployment</b> -d {"hash": "c34abc4cf"}</code></pre>
+				</div>
+				where hash is the hash of the last commit of the deployment you're doing
+			</li>
+		</ul>
+		<h2>Now what?</h2>
+		<p>With this little information, devOps is going to retrive all the commits between the previous deployment and the new one. Soon after calling the api, you should see in the dashboard the current status:</p>
+		<ul>
+			<li>What is conntained in the current deployment ?</li>
+			<li>Has something been already deployed ? (search by commit)</li>
+			<li>Who participated to the code that has just been pushed ?</li>
+			<li>Should something happen, who should get notified ?</li>
+		</ul>
+	</div>
+</div>

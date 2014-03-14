@@ -32,13 +32,9 @@
         <a class="navbar-brand" href="#">Dev Ops</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <%= link_to '/logout', :class => 'btn btn-default navbar-btn navbar-right' do %>
-          <span style='color:#d9534f;'>logout</span>
+        <%= link_to '/auth/github', :class => 'btn btn-social btn-github navbar-btn navbar-right' do %>
+          <i class="fa fa-github"></i> Sign in with Github
         <% end %>
-        <p class="navbar-text navbar-right" style='margin:10px 10px 10px 0;' >
-          Welcome, <%= current_user.name %>
-          <%= image_tag current_user.image, :class => 'img-circle', :width => '32px' %>
-        </p>
       </div>
     </div><!-- /.container-fluid -->
   </nav>
