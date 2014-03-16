@@ -12,5 +12,4 @@ Devops::Application.routes.draw do
   namespace :api do
     resources :deployments, :defaults => { :format => 'json' }
   end
-
 end
