@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314190424) do
+ActiveRecord::Schema.define(version: 20140315062809) do
+
+  create_table "commits", force: true do |t|
+    t.string   "hash"
+    t.text     "message"
+    t.integer  "member_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "commits", ["member_id"], name: "index_commits_on_member_id"
+  add_index "commits", ["user_id"], name: "index_commits_on_user_id"
+
+  create_table "deployments", force: true do |t|
+    t.string   "commit_hash"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "deployments", ["user_id"], name: "index_deployments_on_user_id"
+
+  create_table "members", force: true do |t|
+    t.string   "name"
+    t.string   "github_id"
+    t.string   "image"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "members", ["user_id"], name: "index_members_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -22,6 +54,9 @@ ActiveRecord::Schema.define(version: 20140314190424) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uuid"
+    t.string   "organization_id"
+    t.string   "organization_name"
+    t.string   "api_token"
   end
 
 end
