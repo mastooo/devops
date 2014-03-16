@@ -15,7 +15,7 @@
 			<li>First, link your github account to the app using the "Signin with Github" button</li>
 			<li>Add to your current deployment process a call to our api:
 				<div class="highlight">
-					<pre><code class="html"><span class="nt">curl -XPOST -H "Content-Type: application/json" <b>http://0.0.0.0:3000/deployment</b> -d {"hash": "c34abc4cf"}</code></pre>
+					<pre><code class="html"><span class="nt">curl -XPOST -H "Content-Type: application/json" <b>http://0.0.0.0:3000/api/deployments?token=YOUR_API_TOKEN</b> -d {"commit_hash": "GIT_COMMIT_HASH"}</code></pre>
 				</div>
 				where hash is the hash of the last commit of the deployment you're doing
 			</li>
