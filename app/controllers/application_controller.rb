@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  before_filter :require_user
+  before_filter :require_user, :set_github
   
   def require_user
     unless current_user
@@ -15,12 +15,21 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_github
+	@github = Github.new oauth_token: @current_user.token unless current_user.nil?
+  end
+
   def store_location
     session[:return_to] = request.fullpath
   end
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+	begin
+	@current_user ||= User.find(session[:user_id]) if session[:user_id]
+    rescue ActiveRecord::RecordNotFound
+	session[:user_id] = nil
+	@current_user = nil
+    end
   end
 
 
