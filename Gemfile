@@ -34,6 +34,8 @@ end
 
 gem 'omniauth-github'
 
+gem "github_api"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
