@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315062809) do
+ActiveRecord::Schema.define(version: 20140318061514) do
 
   create_table "commits", force: true do |t|
     t.string   "hash"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140315062809) do
     t.string   "organization_id"
     t.string   "organization_name"
     t.string   "api_token"
+    t.string   "repo"
   end
 
 end

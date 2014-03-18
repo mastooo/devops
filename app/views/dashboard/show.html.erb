@@ -1,13 +1,18 @@
-<% if !@organizations.nil? %>
+<!-- 
+<% if !@orgs.nil? %>
 	<h1>You haven't configured the organization you work for</h1>
 	<div class='well'>
 		<%= form_for current_user do |f| %>
-	<%= f.select :organization_name, options_for_select(@organizations.map {|org| org.login}, current_user.organization_name) %>
+	<%= f.select :organization_name, options_for_select(@orgs.map {|k, v| k}, current_user.organization_name) %>
+	<%= f.select :organization_name, options_for_select(@orgs['myERP'], current_user.organization_name) %>
 	<button type='submit'>ok</button>
 		<% end -%>
 	</div>
 <% else %>
 
+<% end %>
+
+ -->
+
 <h1><%= @current_user.organization_name %> deployment dashboard <small>(Api token: <%= @current_user.api_token %>)</small></h1>
 
-<% end %>
